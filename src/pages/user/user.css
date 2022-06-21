@@ -1,0 +1,181 @@
+.usere {
+  flex: 4;
+  padding: 20px;
+  margin-top: 20px;
+ 
+}
+
+.userTitleContainere {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #00186e;
+  color: white;
+}
+.userTitlee{
+  color: white;
+  margin-left: 3cm;
+}
+
+
+
+.CreateButtone {
+  width: 100px;
+  border: none;
+  padding: 5px;
+  background-color:white;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  font-size: 16px;
+  margin-right: 2cm;
+}
+
+.userContainere {
+  display: flex;
+  margin-top: 20px;
+}
+
+.userShowe {
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  background-color:#00186e;
+}
+
+.userUpdatee {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-left: 20px;
+ background-color: #00186e;
+}
+
+.userShowTope {
+  display: flex;
+  align-items: center;
+}
+
+.userShowImge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userShowTopTitlee {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  
+}
+
+.userShowUsernamee {
+  font-weight: 600;
+  
+}
+
+.userShowUserTitlee {
+  font-weight: 300;
+  
+}
+
+.userShowBottome{
+    margin-top: 20px;
+}
+
+.userShowTitlee {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(235, 235, 235);
+}
+
+.userShowInfoe{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+}
+
+.userShowIcone{
+    font-size: 16px !important;
+    color: rgb(235, 235, 235);
+}
+
+.userShowInfoTitlee{
+    margin-left: 10px;
+    color: aliceblue;
+}
+
+.userUpdateTitlee{
+    font-size: 24px;
+    font-weight: 600;
+    color: #fdfdfd;
+}
+
+.userUpdateForme{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.userUpdateIteme{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    color:#00186e;
+}
+
+.userUpdateIteme>label{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.userUpdateInpute{
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+}
+
+.userUpdateRighte{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.userUpdateUploade{
+    display: flex;
+    align-items: center;
+}
+
+.userUpdateImge{
+width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.userUpdateIcone{
+
+
+    cursor: pointer;
+    color: aliceblue;
+    
+    
+}
+
+.UpdateButtone{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    margin-right: 1cm;
+}

@@ -1,0 +1,235 @@
+.userv {
+    flex: 4;
+    padding: 20px;
+  
+  }
+  
+.imagelistv{
+  margin-left: 3cm;
+  background-color: #00186e;
+}
+  .userTitleContainerv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  
+  .userAddButtonv {
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .userContainerv {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .userShowv {
+    flex: 1;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #00186e;
+    color: black;
+    margin:auto  ;
+  
+  
+
+
+  }
+  .userShow2v{
+    flex: 1;
+    padding: 20px;
+    margin-top: 2cm;
+    background-color: white;
+   
+  }
+  
+  .userUpdatev {
+    flex: 2;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    margin-left: 3cm;
+    margin-right: 3cm;
+    background-color: white;
+  }
+  
+  .userShowTopv1 {
+    display: flex;
+    align-items: center;
+     margin-top: 20px;
+     margin-bottom: 20px;
+
+    background-color:#00186e;
+  }
+  
+  .userShowImgv {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  
+  .userShowUsernamev {
+    font-weight: 600;
+    color: white;
+  }
+  
+  .userShowInfoTitle1 {
+    font-weight: 300;
+    color: white;
+    margin-left: 20px;
+  }
+
+  .userShowInfoTitle2 {
+    font-weight: 300;
+    color: white;
+    margin-left: 40px;
+  }
+ 
+
+  .userShowInfoTitle3
+  {
+    font-weight: 300;
+    color: black;
+  }
+
+  .userShowInfoTitle4
+  {
+    font-weight: 300;
+    color: black;
+  }
+
+
+  
+  .userShowBottomv{
+      margin-top: 20px;
+  }
+  
+  .userShowTitlev {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(175, 170, 170);
+  }
+  
+  .userShowInfov{
+      display: flex;
+      align-items: center;
+      margin: 20px 0px;
+      color: #444;
+  }
+  
+  .userShowIconv{
+      font-size: 16px !important;
+  }
+  
+  .userShowInfoTitlev1{
+      margin-left: 10px;
+      background-color: white;
+  }
+  .userShowInfoTitlev2{
+    margin-left: 10px;
+}
+
+  
+  .userUpdateTitlev{
+      font-size: 24px;
+      font-weight: 600;
+      margin-left: 4cm;
+  }
+  
+  .userUpdateFormv{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+  }
+  
+  .userUpdateItemv{
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+  }
+  
+  .userUpdateItem>labelv{
+      margin-bottom: 5px;
+      font-size: 14px;
+  }
+  
+  .userUpdateInputv{
+      border: none;
+      width: 250px;
+      height: 30px;
+      border-bottom: 1px solid gray;
+  }
+  
+  .userUpdateRightv{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  
+  .userUpdateUploadv{
+      display: flex;
+      align-items: center;
+  }
+  
+  .userUpdateImgv{
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-right: 20px;
+  }
+  
+  .userUpdateIconv{
+      cursor: pointer;
+  }
+  
+  .userUpdateButtonv{
+      border-radius: 5px;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+      background-color: darkblue;
+      color: white;
+      font-weight: 600;
+
+      
+  }
+.userShowInfoTitle1v{
+  color: black;
+  text-decoration: double;
+}
+
+.userShowInfoTitlev{
+  color: white;
+  text-decoration: double;
+  margin-left: 1cm;
+  flex-direction: row;
+}
+.userShowIconv{
+  color: black;
+}
+.userShowUsernamev
+
+{
+  color: black;
+  text-decoration: bold;
+}
+
+.userShowUsernamev1{
+  margin-top: 5px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+
+}
+  

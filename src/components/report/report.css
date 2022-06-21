@@ -1,0 +1,38 @@
+
+.report {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+  }
+  
+  
+  .reportItem {
+    height: 20px;
+    flex: 1;
+    margin: 0px 20px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color:white;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #144c8b, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: inset -1px 3px 8px 5px #144c8b, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0); 
+  }
+  
+  .reportTitle{
+      font-size: 25px;
+      text-align: center;
+      font-weight: 1000;
+      display: flex;
+      margin-left: 3cm;
+      color: #0B325E;
+     
+
+     
+    
+  }
+  
+  
+ 
+  
