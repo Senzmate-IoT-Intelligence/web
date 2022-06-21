@@ -3,8 +3,8 @@ import "./logstyle.css";
 import Axios from "axios";
 
 const Login = () => {
-  const [roleKey, setRoleKey] = useState("chathunikumarathunga99@gmail.com");
-  const [password, setPassword] = useState("995442540v");
+  const [roleKey, setRoleKey] = useState("");
+  const [password, setPassword] = useState("");
 
   const signin = () => {
     console.log("Signin");
