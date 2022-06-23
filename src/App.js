@@ -17,6 +17,8 @@ import Edit_emp from "./pages/employee_edit/employeeedit";
 import New_Employee from "./pages/newemployee/newemp";
 import Profile from "./pages/profile/profile";
 import Settings from "./pages/settings/setting";
+import ManagePayment from "./pages/managePayment/managePayment";
+import AddPayment from "./pages/addPayment/addPayment";
 
 const App = () => {
   const userName = window.localStorage.getItem("userName");
@@ -76,6 +78,15 @@ const App = () => {
           <Route path="/setting">
             <Settings />
           </Route>
+
+          <Route path="/manage_payment">
+            <ManagePayment />
+          </Route>
+
+          <Route path="/add_payment">
+            <AddPayment />
+          </Route>
+
         </Switch>
       </div>
     </Router>
