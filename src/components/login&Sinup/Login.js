@@ -6,6 +6,8 @@ const Login = () => {
   const [roleKey, setRoleKey] = useState("");
   const [password, setPassword] = useState("");
 
+  let data = null;
+
   const signin = () => {
     console.log("Signin");
     var body = {
@@ -17,7 +19,7 @@ const Login = () => {
     Axios.post("/user/userlogin", body)
       .then((response) => {
         var Data = response.data;
-        console.log("Response", response.data);
+        alert("Response", response.data);
         window.localStorage.setItem("userName", Data.user.username);
         window.localStorage.setItem("userRole", Data.user.role);
         window.location.reload();

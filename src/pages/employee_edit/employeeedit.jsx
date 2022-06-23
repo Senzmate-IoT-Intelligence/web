@@ -1,12 +1,11 @@
 import {
   CalendarToday,
-  LocationSearching,
-  MailOutline,
   PermIdentity,
   PhoneAndroid,
   Publish,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./employeeedit.css";
 
 export default function Edit_emp() {
@@ -14,9 +13,6 @@ export default function Edit_emp() {
     <div className="user">
       <div className="userTitleContainer">
         <h1 className="userTitle">Edit Employee Details</h1>
-        <Link to="/newemployee">
-          <button className="userAddButton2">Create</button>
-        </Link>
       </div>
       <div className="userContainer">
         <div className="userShow">
@@ -35,22 +31,35 @@ export default function Edit_emp() {
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">0001e</span>
+              <span className="userShowInfoTitle">Admin</span>
             </div>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">samanp99</span>
+              <span className="userShowInfoTitle">B.M Shakthi</span>
             </div>
             <div className="userShowInfo">
               <CalendarToday className="userShowIcon" />
-              <span className="userShowInfoTitle">samanp@gmail.com</span>
+              <span className="userShowInfoTitle">Underwriting</span>
             </div>
-           
+
             <div className="userShowInfo">
               <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">IT</span>
+              <span className="userShowInfoTitle">0775664322</span>
             </div>
-            
+            <div className="userShowInfo">
+              <PhoneAndroid className="userShowIcon" />
+              <span className="userShowInfoTitle">
+                Custom Service Representative
+              </span>
+            </div>
+            <div className="userShowInfo">
+              <PhoneAndroid className="userShowIcon" />
+              <span className="userShowInfoTitle">vinuri@gmail.com</span>
+            </div>
+            <div className="userShowInfo">
+              <PhoneAndroid className="userShowIcon" />
+              <span className="userShowInfoTitle">Custom Care Dahboard</span>
+            </div>
           </div>
         </div>
         <div className="userUpdate">
@@ -58,7 +67,7 @@ export default function Edit_emp() {
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
-                <label>iD</label>
+                <label>ID</label>
                 <input
                   type="text"
                   placeholder="annabeck99"
@@ -66,10 +75,43 @@ export default function Edit_emp() {
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Username</label>
+                <label>Role</label>
                 <input
                   type="text"
-                  placeholder="Anna Becker"
+                  placeholder="Admin"
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Name</label>
+                <input
+                  type="text"
+                  placeholder="yourname"
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Deparment</label>
+                <input
+                  type="text"
+                  placeholder="claims/finance/legal/markerting/underwriting"
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Contactnumber</label>
+                <input
+                  type="text"
+                  placeholder="0771234432"
+                  className="userUpdateInput"
+                />
+              </div>
+
+              <div className="userUpdateItem">
+                <label>Occupation</label>
+                <input
+                  type="text"
+                  placeholder="claims representative/.."
                   className="userUpdateInput"
                 />
               </div>
@@ -77,32 +119,15 @@ export default function Edit_emp() {
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="annabeck99@gmail.com"
+                  placeholder="sgshsbsh@gmail.com"
                   className="userUpdateInput"
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Status</label>
+                <label>Accesspermissions</label>
                 <input
                   type="text"
-                  placeholder="+1 123 456 67"
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
-                <label>Department</label>
-                <input
-                  type="text"
-                  placeholder="New York | USA"
-                  className="userUpdateInput"
-                />
-              </div>
-
-              <div className="userUpdateItem">
-                <label>Job Position</label>
-                <input
-                  type="text"
-                  placeholder="New York | USA"
+                  placeholder="All/Monitoring Dashboard/Custom"
                   className="userUpdateInput"
                 />
               </div>

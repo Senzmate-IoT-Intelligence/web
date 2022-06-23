@@ -1,4 +1,3 @@
-
 import {
   AddCircleOutline,
   CalendarToday,
@@ -15,9 +14,6 @@ export default function User() {
     <div className="usere">
       <div className="userTitleContainere">
         <h1 className="userTitlee">Edit Customer Details</h1>
-        <Link to="/newUser">
-          <button className="CreateButtone">Add New</button>
-        </Link>
       </div>
       <div className="userContainere">
         <div className="userShowe">
@@ -29,7 +25,6 @@ export default function User() {
             />
             <div className="userShowTopTitlee">
               <span className="userShowUsernamee">Anna Becker</span>
-            
             </div>
           </div>
           <div className="userShowBottome">
@@ -54,7 +49,6 @@ export default function User() {
               <CardTravelSharp className="userShowIcone" />
               <span className="userShowInfoTitlee">first party</span>
             </div>
-           
           </div>
         </div>
         <div className="userUpdatee">
@@ -109,14 +103,13 @@ export default function User() {
                   src="https://media.istockphoto.com/photos/young-businessman-with-beard-smiling-towards-camera-picture-id660150716?k=20&m=660150716&s=612x612&w=0&h=8jOsv-5u9yxEBrnSq56B83YLmEv28wZZ6Di7FrBNd1k="
                   alt=""
                 />
-               <label htmlFor="file">
+                <label htmlFor="file">
                   <Publish className="userUpdateIcone" />
                 </label>
                 <input type="file" id="file" style={{ display: "none" }} />
               </div>
-              
+
               <button className="UpdateButtone">Update</button>
-             
             </div>
           </form>
         </div>

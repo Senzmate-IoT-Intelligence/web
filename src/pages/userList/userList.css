@@ -4,6 +4,32 @@
   margin-top: 40px;
   margin-bottom: 45px;
 }
+.user1 {
+  flex: 4;
+  padding: 20px;
+}
+.userTitle1 {
+  margin-left: 10px;
+}
+.userTitleContainer1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  background-color: #00186e;
+  color: white;
+}
+.userAddButton6 {
+  width: 80px;
+  border: none;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  font-size: 16px;
+  margin-right: 1cm;
+}
 
 .userListUser {
   display: flex;
@@ -18,29 +44,28 @@
   margin-right: 10px;
 }
 
-.userListEdit{
-    border: none;
-    border-radius: 10px;
-    padding: 5px 10px;
-    background-color: #3bb077;
-    color: white;
-    cursor: pointer;
-    margin-right: 20px;
-    margin-left: 30px;
-}
-.userListvehicle{
+.userListEdit {
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
-  background-color: #523BF5;
+  background-color: #3bb077;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 100px;
+}
+.userListvehicle {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: #523bf5;
   color: white;
   cursor: pointer;
   margin-right: 20px;
   margin-left: 20px;
 }
 
-.userListtrip
-{
+.userListtrip {
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
@@ -49,7 +74,7 @@
   cursor: pointer;
   margin-right: 20px;
 }
-.userList{
+.userList {
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
@@ -59,7 +84,7 @@
   margin-right: 20px;
 }
 
-.userListDelete{
-    color: red;
-    cursor: pointer;
+.userListDelete {
+  color: red;
+  cursor: pointer;
 }

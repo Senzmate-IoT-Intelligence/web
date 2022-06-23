@@ -3,44 +3,50 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 
-export default function UserList() {
-  const [data, setData] = useState(userRows);
+export default function Employee_List() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getdata();
+  }, []);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-  
+
+  const getdata = () => {
+    Axios.get("http://localhost:5000/api/customer/getall")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "customerID", headerName: "ID", width: 90 },
     {
-      field: "user ",
-      headerName: "User Name",
+      field: "name ",
+      headerName: " Name",
       width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-        );
-      },
     },
+
     { field: "email", headerName: "Email", width: 200 },
     {
-      field: "status",
-      headerName: "Status",
+      field: "nic",
+      headerName: "NIC",
       width: 120,
     },
     {
-      field: "number",
-      headerName: "Telephone Number",
+      field: "contactnumber",
+      headerName: "Contact Number",
       width: 160,
     },
     {
-      field: "type",
-      headerName: "Type",
+      field: "insurancetype",
+      headerName: "Insurance Type",
       width: 120,
     },
     {
@@ -53,12 +59,10 @@ export default function UserList() {
             <Link to={"/user/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
+
             <Link to={"/vehicledetail/" + params.row.id}>
               <button className="userListvehicle">Vehicle Detail</button>
             </Link>
-           
-         
-            
           </>
         );
       },
@@ -66,14 +70,24 @@ export default function UserList() {
   ];
 
   return (
-    <div className="userList">
-      <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-      />
+    <div className="user1">
+      <div className="userTitleContainer1">
+        <h1 className="userTitle1"> Custome Details</h1>
+        <Link to="/newUser">
+          <button className="userAddButton6">Create</button>
+        </Link>
+      </div>
+
+      <div className="userList">
+        <DataGrid
+          getRowId={(row) => row._id}
+          rows={data}
+          disableSelectionOnClick
+          columns={columns}
+          pageSize={8}
+          checkboxSelection
+        />
+      </div>
     </div>
   );
 }

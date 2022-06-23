@@ -15,8 +15,8 @@ const Register = () => {
       role: roleKey,
       username:username,
       email:email,
-       password:password,
-       confirmpassword: confirmpassword,
+      password:password,
+      confirmpassword: confirmpassword,
     };
 
     console.log(body);
@@ -35,6 +35,7 @@ const Register = () => {
         console.log("Error", error);
       });
   };
+
 
 
   return (

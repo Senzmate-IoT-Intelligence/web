@@ -81,7 +81,7 @@ export default function Sidebar() {
           )}
           {userRole == "custom officer"||"admin" && (
             <div className="sidebarMenu">
-              <h3 className="sidebarTitle">Customer Care</h3>
+              <h3 className="sidebarTitle">Customer Care Dash Board</h3>
               <ul className="sidebarList">
                 <li className="sidebarListItem">
                   <MailOutline className="sidebarIcon" />
