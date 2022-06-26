@@ -7,7 +7,7 @@
   margin-bottom: 4cm;
   background-color: #00186e;
   margin-top: 45px;
-  height: 500px;
+  height: 600px;
 }
 
 .newUserForme {
@@ -32,25 +32,25 @@
   margin-right: 20px;
 }
 
-.newUserIteme > label {
+.newUserIteme>label {
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
   color: rgb(151, 150, 150);
 }
 
-.newUserIteme > input {
+.newUserIteme>input {
   height: 20px;
   padding: 10px;
   border: 1px solid gray;
   border-radius: 5px;
 }
 
-.newUserGendere > input {
+.newUserGendere>input {
   margin-top: 15px;
 }
 
-.newUserGendere > label {
+.newUserGendere>label {
   margin: 10px;
   font-size: 18px;
   color: #555;

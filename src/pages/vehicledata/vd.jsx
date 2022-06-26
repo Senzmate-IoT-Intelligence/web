@@ -1,203 +1,129 @@
+import { CalendarToday, PermIdentity, PhoneAndroid } from "@material-ui/icons";
 
+import { Link, useParams } from "react-router-dom";
+import "./vd.css";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import {
-  AddCircleOutline,
-  CalendarToday,
-  CardTravelSharp,
-  PermIdentity,
-  PhoneAndroid,
+  Numbers,
+  NumbersRounded,
+  PriceChange,
+  Square,
+} from "@mui/icons-material";
 
-} from "@material-ui/icons";
-  import { Link } from "react-router-dom";
-  import "./vd.css";
+export default function User2() {
+  const [vehicle, setvehicle] = useState([]);
+  const [insurance, setinsurance] = useState([]);
+  const { userId } = useParams();
+  useEffect(() => {
+    getData();
+  });
 
-  import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import ListSubheader from '@mui/material/ListSubheader';
-import IconButton from '@mui/material/IconButton';
-import InfoIcon from '@mui/icons-material/Info';
+  const getData = () => {
+    Axios.get(`http://localhost:5000/api/vehicle/show/${userId}`)
+      .then((res) => {
+        setvehicle(res.data.response);
+      })
+      .catch((err) => console.log(err));
+    console.log(vehicle);
+  };
 
-const itemData = [
-  {
-    img: 'https://as1.ftcdn.net/v2/jpg/01/71/13/04/1000_F_171130424_f8KQj028hrnzzU8aa9aMNgrNRT9JU3Wz.jpg',
-    title: 'Side View',
-    
-    rows: 2,
-    cols: 2,
-    featured: true,
-  },
-  {
-    img: 'https://as1.ftcdn.net/v2/jpg/01/71/13/06/1000_F_171130622_HP31eDUD007u1KfGF9saKbVlMuKl1dV9.jpg',
-    title: 'Back View',
-   
-  },
-  {
-    img: 'https://as1.ftcdn.net/v2/jpg/01/77/36/56/1000_F_177365693_8p7z5nJN0oqoRhRjfi3HBIEbMY8HtbKr.jpg',
-    title: 'Front View',
-    
-  },
-  {
-    img: 'https://as2.ftcdn.net/v2/jpg/01/77/36/59/1000_F_177365917_XTCvFzybOo7gIGMFnP6uv6uapOCkUJQr.jpg',
-    title: 'Front Zoom View',
-   
-  },
-  {
-    img: 'https://as1.ftcdn.net/v2/jpg/01/77/36/54/1000_F_177365429_pYwErA1nh5KNIvHzM0ZShEfL5UoRNQv2.jpg',
-    title: 'Front Zoom View',
-    
-  },
-  {
-    img: 'https://as1.ftcdn.net/v2/jpg/01/77/36/56/1000_F_177365693_8p7z5nJN0oqoRhRjfi3HBIEbMY8HtbKr.jpg',
-    title: 'Front Zoom View',
-    
-  },
-  
-  
-];
+  useEffect(() => {
+    getData2();
+  });
 
-  
-  export default function User2() {
-    return (
-      <div className="userv">
-       
+  const getData2 = () => {
+    Axios.get(`http://localhost:5000/api/insurancedetail/show/${userId}`)
+      .then((res) => {
+        setinsurance(res.data.response);
+      })
+      .catch((err) => console.log(err));
+    console.log(vehicle);
+  };
 
- 
-        <div className="userContainerv">
-          <div className="userShowv">
-          <span className="userShowUsernamev1">Vehicle Details</span>
-            <div className="userShowTopv1">
-            
-              
-              <div className="userShowTopTitlev1">
-               
-                <div className="userShowTopTitlev1">
-                <span className="userShowUsernamev">Vehicle Info</span>
-
-                <div class="insuv">
-            <div className="userShowInfov">
-              <PermIdentity className="userShowIconv" />
-              <span className="userShowInfoTitle1">Vehicle Number</span>
-              <span className="userShowInfoTitle2">EN3137</span>
-         
+  return (
+    <div className="user">
+      <div className="userTitleContainer">
+        <h1 className="userTitle">Vehicle Details- </h1>
+        <Link to="/addvehicledetail">
+          <button className="userAddButton9">Add Vehicle Detail</button>
+        </Link>
+        <Link to="/addinsurancedetail">
+          <button className="userAddButton10">Add Insurance Detail</button>
+        </Link>
+      </div>
+      <div className="userContainer">
+        <div className="userShow">
+          <div className="userShowTop">
+            <div className="userShowTopTitle">
+              <span className="userShowUsername">Saman Perera</span>
+              <span className="userShowUserTitlev">Vehicle Info</span>
             </div>
-            <div className="userShowInfov">
-              <CalendarToday className="userShowIconv" />
-              <span className="userShowInfoTitle1">Manufactured YEAR</span>
-              <span className="userShowInfoTitle2">2012</span>
-
-            </div>
-            <div className="userShowInfov">
-              <AddCircleOutline className="userShowIconv" />
-              <span className="userShowInfoTitle1">Chassis Number</span>
-              <span className="userShowInfoTitle2">SV30-0169266</span>
-            </div>
-            <div className="userShowInfov">
-              <PhoneAndroid className="userShowIconv" />
-              <span className="userShowInfoTitle1">Value</span>
-              <span className="userShowInfoTitle2">Rs 65,000</span>
-            </div>
-            <div className="userShowInfov">
-              <CardTravelSharp className="userShowIconv" />
-              <span className="userShowInfoTitle1">Number Of Accidents</span>
-              <span className="userShowInfoTitle2">1</span>
-            </div>
-           
           </div>
+          <div className="userShowBottom">
+            <span className="userShowTitle">Vehicle Info</span>
+            <div className="userShowInfo">
+              <NumbersRounded className="userShowIcon" />
+              <label> Vehiclenumber</label>
+              <span className="userShowInfoTitle1">
+                {vehicle.vehiclenumber}
+              </span>
+            </div>
+            <div className="userShowInfo">
+              <CalendarToday className="userShowIcon" />
+              <label>Manufacturedyear</label>
+              <span className="userShowInfoTitle2">
+                {vehicle.manufacturedyear}
+              </span>
+            </div>
+            <div className="userShowInfo">
+              <Square className="userShowIcon" />
+              <label>Chassisnumber</label>
+              <span className="userShowInfoTitle3">
+                {vehicle.chassisnumber}
+              </span>
+            </div>
+            <div className="userShowInfo">
+              <PriceChange className="userShowIcon" />
+              <label>Price</label>
+              <span className="userShowInfoTitle4">{vehicle.value}</span>
+            </div>
           </div>
-          </div>
+        </div>
+        <div className="userUpdate">
+          <span className="userUpdateTitle">Insurance Details</span>
 
-          
-            <div className="imagelistv">
-            <ImageList sx={{ width: 500, height: 450 }}>
-            
-      <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">Vehicle Images</ListSubheader>
-      </ImageListItem>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=248&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-          <ImageListItemBar
-            title={item.title}
-            subtitle={item.author}
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${item.title}`}
-              >
-                <InfoIcon />
-              </IconButton>
-            }
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
-    </div> 
-    <div className="userShow2v">
-            <div className="userShowTopv2">
-
-          <div className="userShowTopTitlev2">
-                <span className="userShowUsernamev">Insurance Details</span>
-
-            <div class="insuv">
-            <div className="userShowInfov">
-              <PermIdentity className="userShowIconv" />
-              <span className="userShowInfoTitle3">Type</span>
-              <span className="userShowInfoTitle4">3rd Party</span>
-         
-            </div>
-            <div className="userShowInfov">
-              <CalendarToday className="userShowIconv" />
-              <span className="userShowInfoTitle3">Monthly Premium</span>
-              <span className="userShowInfoTitle4">1000km</span>
-
-            </div>
-            <div className="userShowInfov">
-              <AddCircleOutline className="userShowIconv" />
-              <span className="userShowInfoTitle3">Purchase Date</span>
-              <span className="userShowInfoTitle4">4/08/2021</span>
-            </div>
-            <div className="userShowInfov">
-              <PhoneAndroid className="userShowIconv" />
-              <span className="userShowInfoTitle3">End Date</span>
-              <span className="userShowInfoTitle4">5/08/2023</span>
-            </div>
-            <div className="userShowInfov">
-              <CardTravelSharp className="userShowIconv" />
-              <span className="userShowInfoTitle3">Valuee</span>
-              <span className="userShowInfoTitle4">Rs 200000</span>
-            </div>
-           
-          </div>
-          </div> 
-
-               
+          <div className="userUpdateLeft">
+            <div className="userShowBottom">
+              <span className="userShowTitle">Insurance Info</span>
+              <div className="userShowInfoi">
+                <NumbersRounded className="userShowIconi" />
+                <label> Monthlypremium</label>
+                <span className="userShowInfoTitle1i">
+                  {insurance.monthlypremium}
+                </span>
               </div>
+              <div className="userShowInfoi">
+                <CalendarToday className="userShowIconi" />
+                <label>Purchasedate</label>
+                <span className="userShowInfoTitle2i">
+                  {insurance.purchasedate}
+                </span>
               </div>
+              <div className="userShowInfoi">
+                <Square className="userShowIconi" />
+                <label>Enddate</label>
+                <span className="userShowInfoTitle3i">{insurance.enddate}</span>
               </div>
-
-              
+              <div className="userShowInfoi">
+                <PriceChange className="userShowIconi" />
+                <label>Price</label>
+                <span className="userShowInfoTitle4i">{insurance.value}</span>
+              </div>
             </div>
-            
           </div>
-
-          
-
-          
-
-    
-              </div>
-            
-      
-      
-    );
-  }
-  
-
-
-
-
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -6,27 +6,47 @@ import { userData } from "../../dummyData";
 import { userData2 } from "../../dummyData";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
-
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 
 export default function week() {
-    return (
-        <div className="home">
+  const [data, setData] = useState([]);
 
-            <Report />
-            <FeaturedInfo />
-            <Chart data={userData} title="Earning of Trip" grid dataKey="Cash In" dataKey2="Cash Out" />
-            <Chart2 data={userData2} title="Accident Count" grid dataKey="Accident" dataKey2="Trips" />
+  useEffect(() => {
+    getdata();
+  }, []);
+  const getdata = () => {
+    Axios.get("http://localhost:5000/api/customer/getall")
+      .then((res) => {
+        setData(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
+  return (
+    <div className="home">
+      <Report />
+      <FeaturedInfo />
+      {/* <Chart
+        data={userData}
+        title="Earning of Trip"
+        grid
+        dataKey="Cash In"
+        dataKey2="Cash Out"
+      /> */}
+      <Chart2
+        data={data}
+        title="Accident Count"
+        grid
+        dataKey="numberofaccidents"
+        /* dataKey2="Trips" */
+      />
 
-
-
-
-            <div className="homeWidgets">
-                <WidgetSm />
-                <WidgetLg />
-            </div>
-
-        </div>
-
-    );
+      <div className="homeWidgets">
+        <WidgetSm />
+        <WidgetLg />
+      </div>
+    </div>
+  );
 }

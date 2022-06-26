@@ -17,6 +17,8 @@ import Edit_emp from "./pages/employee_edit/employeeedit";
 import New_Employee from "./pages/newemployee/newemp";
 import Profile from "./pages/profile/profile";
 import Settings from "./pages/settings/setting";
+import Addvehicledetail from "./pages/vehicledata/adddetail";
+import Addinsurancedetail from "./pages/vehicledata/addinsurance";
 
 const App = () => {
   const userName = window.localStorage.getItem("userName");
@@ -50,6 +52,12 @@ const App = () => {
           </Route>
           <Route path="/vehicledetail/:userId">
             <User2 />
+          </Route>
+          <Route path="/addvehicledetail">
+            <Addvehicledetail />
+          </Route>
+          <Route path="/addinsurancedetail">
+            <Addinsurancedetail />
           </Route>
           <Route path="/triplist/:userId">
             <TripList />
