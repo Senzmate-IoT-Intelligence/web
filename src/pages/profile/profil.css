@@ -1,116 +1,179 @@
-.newUsercp {
+.user {
   flex: 4;
-  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  margin-left: 2cm;
-  margin-right:2cm ;
-  margin-bottom:2cm ;
-  background-color:  #00186e;
- width: 4cm;
-margin-top: 45px;
-
+  padding: 20px;
 }
 
-
-
-.newUserFormcp {
-  margin-top: 2cm;
-  margin-left: 4cm;
-
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.newUserTitlecp{
-  margin-top: 70px;
-  margin-left: 12cm;
+.userTitle {
+  margin-left: 10px;
   color: white;
 }
 
-.newUserItemcp {
-  width: 400px;
+.userTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  background-color: #00186e;
+  color: white;
+}
+
+.userAddButton2 {
+  width: 80px;
+  border: none;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  font-size: 16px;
+  margin-right: 2cm;
+}
+
+.userContainer {
+  display: flex;
+  margin-top: 20px;
+}
+
+.userShow {
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.userUpdate {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-left: 20px;
+}
+
+.userShowTop {
+  display: flex;
+  align-items: center;
+}
+
+.userShowImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userShowTopTitle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.userShowUsername {
+  font-weight: 600;
+  color: white;
+}
+
+.userShowUserTitle {
+  font-weight: 300;
+  color: aliceblue;
+}
+
+.userShowBottom {
+  margin-top: 20px;
+}
+
+.userShowTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(175, 170, 170);
+}
+
+.userShowInfo {
+  display: flex;
+  align-items: center;
+  margin: 20px 0px;
+  color: #444;
+}
+
+.userShowIcon {
+  font-size: 16px !important;
+}
+
+.userShowInfoTitle {
+  margin-left: 10px;
+}
+
+.userUpdateTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.userUpdateForm {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+
+.userUpdateItem {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  color: #00186e;
+}
+
+.userUpdate {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background-color: #00186e;
+  margin-top: 2px;
+
+
+}
+
+.userUpdateItem>label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: white;
+}
+
+.userUpdateInput {
+  border: none;
+  width: 250px;
+  height: 30px;
+  border-bottom: 1px solid gray;
+}
+
+.userUpdateRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.userUpdateUpload {
+  display: flex;
+  align-items: center;
+}
+
+.userUpdateImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
   margin-right: 20px;
 }
 
-.newUserItemcp > label {
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: rgb(151, 150, 150);
+.userUpdateIcon {
+  cursor: pointer;
 }
 
-.newUserItemcp > input {
-  height: 20px;
-  padding: 10px;
-  border: 1px solid gray;
+.userUpdateButton {
   border-radius: 5px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-weight: 600;
 }
-
-.newUserGendercp > input {
-  margin-top: 15px;
-}
-
-.newUserGendercp>label{
-    margin: 10px;
-    font-size: 18px;
-    color: #555;
-}
-
-
-.newUserButtoncp{
-    width: 100px;
-    border: none;
-    background-color: white;
-    color: black;
-    padding: 7px 10px;
-    font-weight: 600;
-    border-radius: 10px;
-    margin-top: 30px;
-    cursor: pointer;
-}
-  
-  .newUserItempp > label {
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: rgb(151, 150, 150);
-  }
-  
-  .newUserItempp > input {
-    height: 20px;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-  }
-  
-  .newUserGenderp > input {
-    margin-top: 15px;
-  }
-  
-  .newUserGenderp>label{
-      margin: 10px;
-      font-size: 18px;
-      color: white;
-  }
-  
-  .newUserSelectp{
-      height: 40px;
-      border-radius: 5px;
-  }
-  
-  .newUserButtoncp{
-      width: 100px;
-      border: none;
-      background-color: white;
-      color: black;
-      padding: 7px 10px;
-      font-weight: 600;
-      border-radius: 10px;
-      margin-top: 60px;
-      cursor: pointer;
-      margin-bottom: 10px;
-      margin-left: 475px;
-  }

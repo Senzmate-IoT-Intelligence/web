@@ -2,7 +2,12 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
 import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+} from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import User2 from "./pages/vehicledata/vd";
@@ -28,63 +33,40 @@ const App = () => {
       <Topbar />
       <div className="container">
         {userName != undefined && <Sidebar />}
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/users">
-            <UserList />
-          </Route>
-          <Route path="/signup">
-            <RegistrationForm />
-          </Route>
-          <Route path="/signin">
-            <Login />
-          </Route>
-          <Route path="/weeklyreport">
-            <Weekly_report />
-          </Route>
-          <Route path="/Monthly_report">
-            <Monthly_report />
-          </Route>
-          <Route path="/user/:userId">
-            <User />
-          </Route>
-          <Route path="/vehicledetail/:userId">
-            <User2 />
-          </Route>
-          <Route path="/addvehicledetail">
-            <Addvehicledetail />
-          </Route>
-          <Route path="/addinsurancedetail">
-            <Addinsurancedetail />
-          </Route>
-          <Route path="/triplist/:userId">
-            <TripList />
-          </Route>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<UserList />} />
 
-          <Route path="/newUser">
-            <NewUser />
-          </Route>
-          <Route path="/employee">
-            <Employee_List />
-          </Route>
+          <Route path="/signup" element={<RegistrationForm />} />
 
-          <Route path="/editemployee/:userId">
-            <Edit_emp />
-          </Route>
+          <Route path="/signin" element={<Login />} />
 
-          <Route path="/newemployee">
-            <New_Employee />
-          </Route>
+          <Route path="/weeklyreport" element={<Weekly_report />} />
 
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          <Route path="/setting">
-            <Settings />
-          </Route>
-        </Switch>
+          <Route path="/Monthly_report" element={<Monthly_report />} />
+
+          <Route path="/user/:userId" element={<User />} />
+
+          <Route path="/vehicledetail/:userId" element={<User2 />} />
+
+          <Route path="/addvehicledetail" element={<Addvehicledetail />} />
+
+          <Route path="/addinsurancedetail" element={<Addinsurancedetail />} />
+
+          <Route path="/triplist/:userId" element={<TripList />} />
+
+          <Route path="/newUser" element={<NewUser />} />
+
+          <Route path="/employee" element={<Employee_List />} />
+
+          <Route path="/editemployee/:userId" element={<Edit_emp />} />
+
+          <Route path="/newemployee" element={<New_Employee />} />
+
+          <Route path="/profile" element={<Profile />} />
+
+          <Route path="/setting" element={<Settings />} />
+        </Routes>
       </div>
     </Router>
   );

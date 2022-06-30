@@ -8,6 +8,7 @@ import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import FeaturedInfoweekly from "../featuredInfo/FeaturedInfoweekly";
 
 export default function week() {
   const [data, setData] = useState([]);
@@ -27,7 +28,7 @@ export default function week() {
   return (
     <div className="home">
       <Report />
-      <FeaturedInfo />
+      <FeaturedInfoweekly />
       {/* <Chart
         data={userData}
         title="Earning of Trip"

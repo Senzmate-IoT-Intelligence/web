@@ -39,7 +39,7 @@ const renderCustomizedLabel = ({
   );
 };
 
-export default function Bottompiedaily() {
+export default function Botompieweekly() {
   const [data, setData] = useState([]);
   const [totalAccident, setTotalAccident] = useState(0);
   const [totalTrip, setTotalTrip] = useState(0);
@@ -48,7 +48,7 @@ export default function Bottompiedaily() {
     getdata();
   }, []);
   const getdata = () => {
-    Axios.post("http://localhost:5000/api/reports/accident-count", {
+    Axios.post("http://localhost:5000/api/reports/accident-count-weekly", {
       date: new Date("2022-03-06"),
     })
       .then((res) => {
@@ -89,7 +89,7 @@ export default function Bottompiedaily() {
 
   return (
     <div className="widgetSm">
-      <span className="widgetSmTitle">Daily-Accidents vs Trips</span>
+      <span className="widgetSmTitle">Weekly-Accidents vs Trips</span>
 
       <PieChart width={400} height={400}>
         <Pie

@@ -23,7 +23,7 @@ const Register = () => {
     Axios.post("user/userregister", body)
       .then((response) => {
         var Data = response.data;
-        console.log("Response", response.data);
+        alert("You are Successfully Registerd");
         window.localStorage.setItem("userRole", Data.newUser.role);
         window.localStorage.setItem("userName", Data.newUser.username);
         window.localStorage.setItem("Email", Data.newUser.email);
@@ -35,7 +35,7 @@ const Register = () => {
         window.location.reload();
       })
       .catch((error) => {
-        console.log("Error", error);
+        alert(error.response.data.error);
       });
   };
 
@@ -72,7 +72,7 @@ const Register = () => {
             <input
               value={username}
               type="text"
-              placeholder="admin/monitoring officer/custom officer"
+              placeholder="typeyour username here"
               onChange={(e) => setusername(e.target.value)}
             />
           </div>

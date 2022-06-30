@@ -44,7 +44,7 @@ export default function User2() {
   return (
     <div className="user">
       <div className="userTitleContainer">
-        <h1 className="userTitle">Vehicle Details- </h1>
+        <h1 className="userTitle">Vehicle Details-{userId} </h1>
         <Link to="/addvehicledetail">
           <button className="userAddButton9">Add Vehicle Detail</button>
         </Link>

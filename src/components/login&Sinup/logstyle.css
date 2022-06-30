@@ -1,27 +1,26 @@
-
-.forml{
+.forml {
   background-color: white;
   border-radius: 5px;
   width: 500px;
   margin: 10px auto;
   padding: 10px;
 
-   height: 560px; 
-   margin-left: 400px;
-   background-color: #00186e;
+  height: 560px;
+  margin-left: 600px;
+  background-color: #00186e;
 }
 
 .newUserForml {
-margin-top:50px ;
+  margin-top: 50px;
 
-margin-left: 50px;
-margin-right: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
   display: flex;
   flex-wrap: wrap;
- 
+
 }
 
-.newUserTitlel{
+.newUserTitlel {
   margin-left: 13cm;
   color: white;
 }
@@ -34,50 +33,50 @@ margin-right: 50px;
   margin-right: 20px;
   margin-left: 20px;
 
-  
+
 }
 
 
 
-.newUserIteml > label {
+.newUserIteml>label {
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
   color: rgb(151, 150, 150);
 }
 
-.newUserIteml > input {
+.newUserIteml>input {
   height: 20px;
   padding: 10px;
   border: 1px solid gray;
   border-radius: 5px;
 }
 
-.newUserGender > input {
+.newUserGender>input {
   margin-top: 15px;
 }
 
-.newUserGenderl>label{
-    margin: 10px;
-    font-size: 18px;
-    color: #555;
+.newUserGenderl>label {
+  margin: 10px;
+  font-size: 18px;
+  color: #555;
 }
 
-.newUserSelect{
-    height: 40px;
-    border-radius: 5px;
+.newUserSelect {
+  height: 40px;
+  border-radius: 5px;
 }
 
-.newUserButtonl{
-    width: 100px;
-    border: none;
-    background-color: white;
-    color: black;
-    padding: 7px 10px;
-    font-weight: 600;
-    border-radius: 10px;
-    margin-top: 30px;
-    cursor: pointer;
-    margin-left: 0px;
-    
+.newUserButtonl {
+  width: 100px;
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 7px 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-top: 30px;
+  cursor: pointer;
+  margin-left: 0px;
+
 }

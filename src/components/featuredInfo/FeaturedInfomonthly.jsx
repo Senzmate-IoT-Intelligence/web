@@ -4,14 +4,14 @@ import { ArrowLeftSharp } from "@material-ui/icons";
 //import { userData2 } from "../../dummyData";
 import Axios from "axios";
 
-export default function FeaturedInfo() {
+export default function FeaturedInfomonthly() {
   const [data, setData] = useState([]);
   const [totalAccident, setTotalAccident] = useState(0);
   useEffect(() => {
     getdata();
   }, []);
   const getdata = () => {
-    Axios.post("http://localhost:5000/api/reports/accident-count", {
+    Axios.post("http://localhost:5000/api/reports/accident-count-monthly", {
       date: new Date("2022-03-06"),
     })
       .then((res) => {
@@ -32,6 +32,7 @@ export default function FeaturedInfo() {
 
     console.log("total", total);
   };
+
   return (
     <div className="container">
       <div className="featured">

@@ -1,37 +1,39 @@
-
-.formr{
+.formr {
   align-items: center;
 
   border-radius: 5px;
   width: 500px;
- margin-right: 2cm;
- margin-left: 400px;
- margin-top: 1cm;
+  margin-right: 2cm;
+  margin-left: 600px;
+  margin-top: 1cm;
   padding: 10px;
-  
-   height: 400px;
-   display:flex;
-   align-items: center;
-   flex-direction: column;
-   background-color:#00186e ;
-   height: 580px;
-   
-  
+
+  height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #00186e;
+  height: 580px;
+
+
 }
-.form-bodyr{
+
+.form-bodyr {
   margin-left: 250px;
 }
-.co{
+
+.co {
   margin-left: 8cm;
 }
+
 .newUserFormr {
- margin: auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   margin-left: -250px;
 }
 
-.newUserTitler{
+.newUserTitler {
   margin-left: 130px;
   color: white;
 }
@@ -40,39 +42,39 @@
   width: 400px;
   display: flex;
   flex-direction: column;
-  
- 
+
+
 }
 
-.newUserItemr > label {
+.newUserItemr>label {
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
   color: rgb(151, 150, 150);
 }
 
-.newUserItemr > input {
+.newUserItemr>input {
   height: 20px;
   padding: 10px;
   border: 1px solid gray;
   border-radius: 5px;
 }
 
-.newUserItemr > label {
- margin-top: 5px;
+.newUserItemr>label {
+  margin-top: 5px;
 }
 
 
 
 
-.newUserButtonr{
-    width: 100px;
-    border: none;
-    background-color: white;
-    color: black;
-    padding: 7px 10px;
-    font-weight: 600;
-    border-radius: 10px;
-    margin-top: 30px;
-    cursor: pointer;
+.newUserButtonr {
+  width: 100px;
+  border: none;
+  background-color: white;
+  color: black;
+  padding: 7px 10px;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-top: 30px;
+  cursor: pointer;
 }

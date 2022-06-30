@@ -17,7 +17,7 @@ export default function User() {
   const [nic, setnic] = useState("");
   const [contact, setContact] = useState("");
   const [insurancetype, setinsurancetype] = useState("");
-  const [numofaccidents, setnumofaccidents] = useState("");
+
   const [customer, setEmployee] = useState([]);
 
   const { userId } = useParams();
@@ -33,7 +33,6 @@ export default function User() {
       nic: nic,
       contactnumber: contact,
       insurancetype: insurancetype,
-      numberofaccidents: numofaccidents,
     };
     console.log(data);
     Axios.put(`http://localhost:5000/api/customer/update/${userId}`, data).then(
@@ -81,18 +80,15 @@ export default function User() {
             </div>
             <div className="userShowInfoe">
               <PhoneAndroid className="userShowIcone" />
-              <span className="userShowInfoTitlee"> {customer.contact}</span>
-            </div>
-            <div className="userShowInfoe">
-              <CardTravelSharp className="userShowIcone" />
               <span className="userShowInfoTitlee">
-                {customer.insurancetype}
+                {" "}
+                {customer.contactnumber}
               </span>
             </div>
             <div className="userShowInfoe">
               <CardTravelSharp className="userShowIcone" />
               <span className="userShowInfoTitlee">
-                {customer.numofaccidents}
+                {customer.insurancetype}
               </span>
             </div>
           </div>
@@ -123,7 +119,7 @@ export default function User() {
                 <label>Nic</label>
                 <input
                   type="text"
-                  placeholder="active/not"
+                  placeholder="your nic here"
                   onChange={(e) => setnic(e.target.value)}
                   className="userUpdateInput"
                 />
@@ -143,15 +139,6 @@ export default function User() {
                   type="text"
                   placeholder="first/third"
                   onChange={(e) => setinsurancetype(e.target.value)}
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateIteme">
-                <label>Number Of Accidents</label>
-                <input
-                  type="text"
-                  placeholder="1/30/.."
-                  onChange={(e) => setnumofaccidents(e.target.value)}
                   className="userUpdateInput"
                 />
               </div>

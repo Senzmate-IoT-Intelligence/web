@@ -48,11 +48,7 @@ export default function Employee_List() {
       headerName: "Insurance Type",
       width: 120,
     },
-    {
-      field: "numberofaccidents",
-      headerName: "Number Of Accidents",
-      width: 120,
-    },
+
     {
       field: "action",
       headerName: "Action",

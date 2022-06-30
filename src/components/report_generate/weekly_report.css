@@ -1,12 +1,22 @@
-.home{
+.home {
     flex: 4;
-    
+
 }
 
 
-.homeWidgets{
+.homeWidgets {
     display: flex;
     margin: 20px;
-  
-    
+
+
+}
+
+.calander>input {
+    margin-left: 20px;
+    width: 1250px;
+    height: 50px;
+    background-color: #00186e;
+    color: white;
+
+
 }

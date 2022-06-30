@@ -10,7 +10,6 @@ export default function NewUser() {
     contact: "",
     contact: null,
     insurancetype: "",
-    numofaccidents: "",
   });
 
   const [name, setname] = useState("");
@@ -18,7 +17,6 @@ export default function NewUser() {
   const [nic, setnic] = useState("");
   const [contact, setContact] = useState("");
   const [insurancetype, setinsurancetype] = useState("");
-  const [numofaccidents, setnumofaccidents] = useState("");
 
   const postData = () => {
     const data = {
@@ -27,7 +25,6 @@ export default function NewUser() {
       nic: nic,
       contactnumber: contact,
       insurancetype: insurancetype,
-      numberofaccidents: numofaccidents,
     };
     console.log(data);
     Axios.post("http://localhost:5000/api/customer/create", data).then((res) =>
@@ -80,15 +77,6 @@ export default function NewUser() {
             type="text"
             placeholder="Thirdparty/..."
             onChange={(e) => setinsurancetype(e.target.value)}
-          />
-        </div>
-
-        <div className="newUserItemc">
-          <label> Number Of Accidents</label>
-          <input
-            type="text"
-            placeholder="1/30..."
-            onChange={(e) => setnumofaccidents(e.target.value)}
           />
         </div>
 

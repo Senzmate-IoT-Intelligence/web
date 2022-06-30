@@ -18,14 +18,17 @@ const Login = () => {
     console.log(body);
     Axios.post("/user/userlogin", body)
       .then((response) => {
+        console.log(response);
         var Data = response.data;
-        alert("Response", response.data);
+        alert("You are Successfully Loged");
         window.localStorage.setItem("userName", Data.user.username);
         window.localStorage.setItem("userRole", Data.user.role);
+        window.localStorage.setItem("id", Data.user._id);
+        window.localStorage.setItem("token", Data.token);
         window.location.reload();
       })
       .catch((error) => {
-        console.log("Error", error);
+        alert(error.response.data.error);
       });
   };
 
@@ -43,7 +46,7 @@ const Login = () => {
             <input
               value={roleKey}
               type="text"
-              placeholder="0001A"
+              placeholder="Your email here"
               onChange={(e) => setRoleKey(e.target.value)}
             />
           </div>

@@ -12,6 +12,8 @@ export default function Topbar() {
     window.localStorage.clear();
   };
 
+  const token = window.localStorage.getItem("token");
+
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -20,20 +22,26 @@ export default function Topbar() {
         </div>
         <div className="button">
           <Stack spacing={2} direction="row">
-            <Link to="/signup">
-              <button className="Buttonin">SignUp</button>
-            </Link>
-            <Link to="/signin">
-              <button className="Buttonup">SignIn</button>
-            </Link>
-            <button className="Buttonout" type="button" onClick={Logout}>
-              Logout
-            </button>
+            {!token ? (
+              <Link to="/signup">
+                <button className="Buttonin">SignUp</button>
+              </Link>
+            ) : null}
+            {!token ? (
+              <Link to="/signin">
+                <button className="Buttonup">SignIn</button>
+              </Link>
+            ) : null}
+            {token ? (
+              <button className="Buttonout" type="button" onClick={Logout}>
+                Logout
+              </button>
+            ) : null}
           </Stack>
         </div>
         <div className="topRight">
           <img
-            src="https://thumbs.dreamstime.com/b/young-positive-handsome-business-man-official-costume-suit-tie-standing-smiling-over-light-grey-wall-background-stylish-170441179.jpg"
+            src="https://thumbs.dreamstime.com/b/icon-profile-circle-shadow-color-dark-blue-background-color-white-icon-profile-circle-shadow-color-dark-blue-194699287.jpg"
             alt=""
             className="topAvatar"
           />

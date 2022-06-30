@@ -1,65 +1,139 @@
+import {
+  CalendarToday,
+  EmailOutlined,
+  PermIdentity,
+  PhoneAndroid,
+  Publish,
+} from "@material-ui/icons";
+import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./profil.css";
 
+import Axios from "axios";
+
 export default function Profile() {
+  const [role, setRole] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const token = window.localStorage.getItem("token");
+  const id = window.localStorage.getItem("id");
+
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    getData();
+  });
+
+  const postData = () => {
+    const data = {
+      role: role,
+      name: name,
+      email: email,
+      token: token,
+      id: id,
+    };
+    console.log(data);
+    Axios.post("/user/profile", data).then((res) => console.log(res));
+  };
+
+  const getData = () => {
+    Axios.get(`http://localhost:5000/api/user/show/${id}`)
+      .then((res) => {
+        setUser(res.data.response);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
-   
-
-<div className="newUsercp">
-      <h1 className="newUserTitlecp">Update Profile</h1>
-      <form className="newUserFormcp">
-        <div className="newUserItemcp">
-          <label>Username</label>
-          <input type="text" placeholder="0001A" />
-        </div>
-        <div className="newUserItemcp">
-          <label>Full Name</label>
-          <input type="text" placeholder="John Smith" />
-        </div>
-        <div className="newUserItemcp">
-          <label>Email</label>
-          <input type="email" placeholder="john@gmail.com" />
-        </div>
-       
-        <div className="newUserItemcp">
-          <label>Address</label>
-          <select className="newUserSelectc" name="active" id="active">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-       
-       
-        <div className="newUserItemcp">
-          <label>Phone</label>
-          <input type="text" placeholder="+94760073341" />
-        </div>
-        
-        <div className="newUserItemcp">
-          <label> Insurance Type</label>
-          <input type="text" placeholder="Thirdparty/..." />
-        </div>
-
-        <div className="newUserItempp">
-          <label>Gender</label>
-          <div className="newUserGenderp">
-            <input type="radio" name="gender" id="male" value="male" />
-            <label for="male">Male</label>
-            <input type="radio" name="gender" id="female" value="female" />
-            <label for="female">Female</label>
-            <input type="radio" name="gender" id="other" value="other" />
-            <label for="other">Other</label>
+    <div className="user">
+      <div className="userTitleContainer">
+        <h1 className="userTitle">HELLO! {user.username}</h1>
+      </div>
+      <div className="userContainer">
+        <div className="userShow">
+          <div className="userShowTop">
+            <img
+              src="https://etimg.etb2bimg.com/photo/81507854.cms"
+              alt=""
+              className="userShowImg"
+            />
+            <div className="userShowTopTitle">
+              <span className="userShowUsername">Saman Perera</span>
+              <span className="userShowUserTitle">Software Engineer</span>
+            </div>
           </div>
+          <div className="userShowBottom">
+            <span className="userShowTitle">Account Details</span>
+
+            <div className="userShowInfo">
+              <PermIdentity className="userShowIcon" />
+              <span className="userShowInfoTitle">{user.role}</span>
+            </div>
+            <div className="userShowInfo">
+              <PermIdentity className="userShowIcon" />
+              <span className="userShowInfoTitle">{user.username}</span>
+            </div>
+
+            <div className="userShowInfo">
+              <EmailOutlined className="userShowIcon" />
+              <span className="userShowInfoTitle">{user.email}</span>
+            </div>
           </div>
-        
-          
-   
-        <div className="newUserItemcp">
-        <button className="newUserButtoncp">Update</button>
         </div>
-      </form>
-    
+        <div className="userUpdate">
+          <span className="userUpdateTitle">Update Profile</span>
+          <form className="userUpdateForm">
+            <div className="userUpdateLeft">
+              <div className="userUpdateItem">
+                <label>Role</label>
+                <input
+                  type="text"
+                  placeholder="Admin"
+                  className="userUpdateInput"
+                  value={user.role}
+                  onChange={(e) => setRole(e.target.value)}
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>Name</label>
+                <input
+                  type="text"
+                  placeholder="yourname"
+                  className="userUpdateInput"
+                  //value={employee.name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
+              <div className="userUpdateItem">
+                <label>Email</label>
+                <input
+                  type="text"
+                  placeholder="sgshsbsh@gmail.com"
+                  className="userUpdateInput"
+                  //value={employee.email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="userUpdateRight">
+              <div className="userUpdateUpload">
+                <img
+                  className="userUpdateImg"
+                  src="https://etimg.etb2bimg.com/photo/81507854.cms"
+                  alt=""
+                />
+                <label htmlFor="file">
+                  <Publish className="userUpdateIcon" />
+                </label>
+                <input type="file" id="file" style={{ display: "none" }} />
+              </div>
+              <button className="userUpdateButton" onClick={postData}>
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
- 
-   
   );
 }

@@ -1,38 +1,37 @@
-import Report from "../../components/report/report";
 import Chart from "../../components/chart/Chart";
 import Chart2 from "../../components/chart/chart2";
-
+import Report from "../../components/report/report";
 import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
-import "./home.css";
 import { userData } from "../../dummyData";
-import { userData2 } from "../../dummyData";
-
-import WidgetSm from "../../components/widgetSm/WidgetSm";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
-import Reports from "../../components/report/report";
-import React, { useState, useEffect } from "react";
+import "./home.css";
 import Axios from "axios";
+import { useEffect, useState } from "react";
+import Bottompiedaily from "../../components/widgetLg/WidgetLg";
+import WidgetSm from "../../components/widgetSm/WidgetSm";
 
 export default function Home() {
   const [data, setData] = useState([]);
-
-  const report = [{ day: "Monday", accident: 1000, trip: 100 }, {}];
+  const [date, setDate] = useState();
 
   useEffect(() => {
     getdata();
-  }, []);
+  }, [date]);
   const getdata = () => {
-    Axios.get("http://localhost:5000/api/customer/getall")
+    Axios.post("http://localhost:5000/api/reports/accident-count", {
+      date: new Date(date),
+    })
       .then((res) => {
         setData(res.data);
         console.log(res.data);
       })
       .catch((err) => console.log(err));
   };
+
   return (
     <div className="home">
       <Report />
       <FeaturedInfo />
+
       <Chart
         data={userData}
         title="Earning of Trip"
@@ -40,16 +39,28 @@ export default function Home() {
         dataKey="Cash In"
         dataKey2="Cash Out"
       />
+      <div className="calander">
+        <input
+          type="date"
+          id="start"
+          name="trip-start"
+          value={date}
+          min="2022-01-01"
+          max="2025-12-31"
+          onChange={(date) => setDate(date.target.value)}
+        />
+      </div>
+
       <Chart2
         data={data}
         title="Accident Count"
         grid
-        dataKey="numberofaccidents"
+        dataKey="Accidents"
         dataKey2="Trips"
       />
       <div className="homeWidgets">
         <WidgetSm />
-        <WidgetLg />
+        <Bottompiedaily />
       </div>
     </div>
   );
