@@ -7,10 +7,12 @@ import {
 import { Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "./employeeedit.css";
+import { useNavigate } from "react-router-dom";
 
 import Axios from "axios";
 
 export default function Edit_emp() {
+  const navigate = useNavigate();
   const [employeeId, setEmployeeId] = useState("");
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
@@ -25,23 +27,35 @@ export default function Edit_emp() {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   const putData = () => {
     const data = {
-      employeeID: employeeId,
-      role: role,
+      employeeID: employee.employeeID,
+      role: employee.role,
       name: name,
       department: department,
       contactnumber: contact,
       occupation: occupation,
       email: email,
-      accesspermissions: permissions,
+      accesspermissions: employee.accesspermissions,
     };
     console.log(data);
-    Axios.put(`http://localhost:5000/api/employee/update/${userId}`, data).then(
-      (res) => console.log(res)
-    );
+    Axios.put(`http://localhost:5000/api/employee/update/${userId}`, data)
+      .then((res) => {
+        console.log(res);
+        console.log(JSON.stringify(res));
+        alert(res.data.message);
+        if (res.data.message == "Employee updated successfully!") {
+          setTimeout(() => {
+            navigate("/employee");
+          }, 1500);
+          //window.location.reload();
+        }
+      })
+      .catch((error) => {
+        alert(error.response.data.error);
+      });
   };
 
   const getData = () => {
@@ -54,19 +68,18 @@ export default function Edit_emp() {
   return (
     <div className="user">
       <div className="userTitleContainer">
-        <h1 className="userTitle">Edit Employee Details- {employee.name}</h1>
+        <h1 className="userTitle">Edit Employee Details</h1>
       </div>
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
             <img
-              src="https://etimg.etb2bimg.com/photo/81507854.cms"
+              src="https://thumbs.dreamstime.com/b/icon-profile-circle-shadow-color-dark-blue-background-color-white-icon-profile-circle-shadow-color-dark-blue-194699287.jpg"
               alt=""
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="userShowUsername">Saman Perera</span>
-              <span className="userShowUserTitle">Software Engineer</span>
+              <span className="userShowUsernamee">{employee.name}</span>
             </div>
           </div>
           <div className="userShowBottom">
@@ -118,10 +131,11 @@ export default function Edit_emp() {
               <div className="userUpdateItem">
                 <label>ID</label>
                 <input
-                  type="text"
                   placeholder="annabeck99"
-                  className="userUpdateInput"
-                  onChange={(e) => setEmployeeId(e.target.value)}
+                  className="userUpdateInput "
+                  value={employee.employeeID}
+                  //onChange={(e) => setEmployeeId(e.target.value)}
+                  //disabled
                 />
               </div>
               <div className="userUpdateItem">
@@ -130,8 +144,9 @@ export default function Edit_emp() {
                   type="text"
                   placeholder="Admin"
                   className="userUpdateInput"
-                  //value={employee.role}
-                  onChange={(e) => setRole(e.target.value)}
+                  value={employee.role}
+                  //onChange={(e) => setRole(e.target.value)}
+                  //disabled
                 />
               </div>
               <div className="userUpdateItem">
@@ -146,13 +161,20 @@ export default function Edit_emp() {
               </div>
               <div className="userUpdateItem">
                 <label>Deparment</label>
-                <input
-                  type="text"
-                  placeholder="claims/finance/legal/markerting/underwriting"
-                  className="userUpdateInput"
-                  //value={employee.department}
-                  onChange={(e) => setDepartment(e.target.value)}
-                />
+                <select
+                  className="newUserSelectc"
+                  name="department"
+                  id="active"
+                  onChange={(e) =>
+                    setDepartment(e.target.value) + console.log(e.target.value)
+                  }
+                >
+                  <option value={"claims"}>Claims</option>
+                  <option value={"finance"}>Finance</option>
+                  <option value={"legal"}>Legal</option>
+                  <option value={"markerting"}>Markerting</option>
+                  <option value={"underwriting"}>Underwriting</option>
+                </select>
               </div>
               <div className="userUpdateItem">
                 <label>Contactnumber</label>
@@ -191,8 +213,9 @@ export default function Edit_emp() {
                   type="text"
                   placeholder="All/Monitoring Dashboard/Custom"
                   className="userUpdateInput"
-                  //value={employee.accesspermissions}
-                  onChange={(e) => setPermissions(e.target.value)}
+                  value={employee.accesspermissions}
+                  //onChange={(e) => setPermissions(e.target.value)}
+                  //disabled
                 />
               </div>
             </div>
@@ -200,7 +223,7 @@ export default function Edit_emp() {
               <div className="userUpdateUpload">
                 <img
                   className="userUpdateImg"
-                  src="https://etimg.etb2bimg.com/photo/81507854.cms"
+                  src="https://thumbs.dreamstime.com/b/icon-profile-circle-shadow-color-dark-blue-background-color-white-icon-profile-circle-shadow-color-dark-blue-194699287.jpg"
                   alt=""
                 />
                 <label htmlFor="file">

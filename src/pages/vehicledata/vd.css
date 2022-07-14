@@ -5,18 +5,19 @@
 
 .userTitle {
   margin-left: 10px;
+  font-size: 20px;
 }
 
 .userTitleContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
   margin-top: 20px;
   background-color: #00186e;
   color: white;
 }
 
-.userAddButton9 {
+.userAddButtonv {
   width: 100px;
   height: 40px;
   border: none;
@@ -26,14 +27,15 @@
   cursor: pointer;
   color: black;
   font-size: 16px;
-  margin-right: -40px;
-  margin-left: 3cm;
   font-size: small;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 500px;
+
+
 }
 
-.userAddButton10 {
+.userAddButtoni {
   width: 100px;
   height: 40px;
   border: none;
@@ -43,11 +45,13 @@
   cursor: pointer;
   color: black;
   font-size: 16px;
-  margin-right: 8cm;
-  margin-left: -220px;
   font-size: small;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 2cm;
+
+
+
 }
 
 .userAddButton2 {
@@ -59,7 +63,7 @@
   cursor: pointer;
   color: black;
   font-size: 16px;
-  margin-right: 2cm;
+
 }
 
 .userContainer {
@@ -145,25 +149,29 @@
 }
 
 .userShowInfoTitle1 {
-  margin-left: 50px;
+  margin-left: 46px;
   color: black;
 }
 
 .userShowInfoTitle2 {
-  margin-left: 26px;
+  margin-left: 65px;
   color: black;
 }
 
 .userShowInfoTitle3 {
-  margin-left: 45px;
+  margin-left: 102px;
   color: black;
 }
 
 .userShowInfoTitle4 {
-  margin-left: 115px;
+  margin-left: 45px;
   color: black;
 }
 
+.userShowInfoTitle5 {
+  margin-left: 148px;
+  color: black;
+}
 
 .userShowInfoTitle1i {
   margin-left: 50px;
@@ -189,6 +197,14 @@
   font-size: 24px;
   font-weight: 600;
   color: white;
+  margin-left: 25px;
+}
+
+.userUpdateTitlev {
+  font-size: 24px;
+  font-weight: 600;
+  color: #00186e;
+  margin-left: 5px;
 }
 
 .userUpdateForm {

@@ -2,7 +2,7 @@ import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import Chart from "../../components/chart/Chart";
 import Chart2 from "../../components/chart/chart2";
-import FeaturedInfoweekly from "../../components/featuredInfo/FeaturedInfo";
+import FeaturedInfoweekly from "../featuredInfo/FeaturedInfoweekly";
 import Report from "../../components/report/report";
 import Botompieweekly from "../widgetLg/WidgetLgweekly";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
@@ -43,8 +43,8 @@ export default function Weekly_report() {
           id="start"
           name="trip-start"
           value={date}
-          min="2022-01-01"
-          max="2025-12-31"
+          //min="2022-01-01"
+          max={new Date().toISOString().substring(0, 10)}
           onChange={(date) => setDate(date.target.value)}
         />
       </div>

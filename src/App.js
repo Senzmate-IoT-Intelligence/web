@@ -2,12 +2,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
 import Home from "./pages/home/Home";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import User2 from "./pages/vehicledata/vd";
@@ -24,6 +19,9 @@ import Profile from "./pages/profile/profile";
 import Settings from "./pages/settings/setting";
 import Addvehicledetail from "./pages/vehicledata/adddetail";
 import Addinsurancedetail from "./pages/vehicledata/addinsurance";
+import Useridval from "./components/login&Sinup/add_id";
+import Editvehicledetail from "./pages/vehicledata/editdetail ";
+import Editinsurancedetail from "./pages/vehicledata/editinsurance ";
 
 const App = () => {
   const userName = window.localStorage.getItem("userName");
@@ -36,6 +34,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<UserList />} />
+
+          <Route path="/useridval" element={<Useridval />} />
 
           <Route path="/signup" element={<RegistrationForm />} />
 
@@ -50,8 +50,16 @@ const App = () => {
           <Route path="/vehicledetail/:userId" element={<User2 />} />
 
           <Route path="/addvehicledetail" element={<Addvehicledetail />} />
+          <Route
+            path="/editvehicledetail/:vehicleId"
+            element={<Editvehicledetail />}
+          />
 
           <Route path="/addinsurancedetail" element={<Addinsurancedetail />} />
+          <Route
+            path="/editinsurance/:insuranceId"
+            element={<Editinsurancedetail />}
+          />
 
           <Route path="/triplist/:userId" element={<TripList />} />
 

@@ -37,14 +37,14 @@ export default function Employee_List() {
 
   const columns = [
     {
-      field: "id",
+      field: "employeeID",
       headerName: "ID",
-      width: 50,
+      width: 100,
     },
     {
       field: "role",
       headerName: "Role of Insurance Agent",
-      width: 150,
+      width: 100,
     },
     {
       field: "name",
@@ -108,6 +108,7 @@ export default function Employee_List() {
     <div className="user1">
       <div className="userTitleContainer1">
         <h1 className="userTitle1"> Insurance Agent Details</h1>
+
         <Link to="/newemployee">
           <button className="userAddButton6">Create</button>
         </Link>

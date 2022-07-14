@@ -1,4 +1,4 @@
-.formr {
+.formr1 {
   align-items: center;
 
   border-radius: 5px;
@@ -18,27 +18,28 @@
 
 }
 
-.form-bodyr {
+.form-bodyr1 {
   margin-left: 250px;
 }
 
-.co {
+.co1 {
   margin-left: 8cm;
 }
 
-.newUserFormr {
+.newUserFormr1 {
   margin: auto;
   display: flex;
   flex-direction: column;
   margin-left: -250px;
+  margin-top: 2cm;
 }
 
-.newUserTitler {
+.newUserTitler1 {
   margin-left: 130px;
   color: white;
 }
 
-.newUserItemr {
+.newUserItemr1 {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -46,25 +47,26 @@
 
 }
 
-.newUserItemr>label {
+.newUserItemr1>label {
   margin-bottom: 10px;
   font-size: 14px;
   font-weight: 600;
-  color: rgb(151, 150, 150);
+  color: white;
 }
 
-.newUserItemr>input {
+.newUserItemr1>input {
   height: 20px;
   padding: 10px;
   border: 1px solid gray;
   border-radius: 5px;
 }
 
-.newUserItemr>label {
+.newUserItemr1>label {
   margin-top: 5px;
+  color: rgb(151, 150, 150);
 }
 
-.newUserSelectc {
+.newUserSelectc1 {
   height: 40px;
   border-radius: 5px;
 }
@@ -72,7 +74,7 @@
 
 
 
-.newUserButtonr {
+.newUserButtonr1 {
   width: 100px;
   border: none;
   background-color: white;

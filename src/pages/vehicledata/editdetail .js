@@ -1,14 +1,18 @@
-import "./adddetail.css";
+import "./editdetail.css";
+import { Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
-export default function Addvehicledetail() {
+import { useNavigate } from "react-router-dom";
+
+export default function Editvehicledetail() {
   const [values, setValues] = useState({
     vehiclenumber: "",
     manufacturedyear: "",
     chassisnumber: "",
     value: "",
     customerid: "",
+    name: "",
   });
 
   const [vehiclenumber, setvehiclenumber] = useState("");
@@ -16,27 +20,47 @@ export default function Addvehicledetail() {
   const [chassisnumber, setchassisnumber] = useState("");
   const [value, setvalue] = useState("");
   const [customerid, setcustomerid] = useState("");
+  const [name, setname] = useState("");
+  const navigate = useNavigate();
+  const { vehicleId } = useParams();
 
-  const postData = () => {
+  const putData = () => {
     const data = {
       vehiclenumber: vehiclenumber,
       manufacturedyear: manufacturedyear,
       chassisnumber: chassisnumber,
       value: value,
-      customerid: customerid,
+      //customerid: customerid,
+      // name: name,
     };
     console.log(data);
-    Axios.post("http://localhost:5000/api/vehicle/create", data).then((res) =>
-      console.log(res)
-    );
+    Axios.put(`http://localhost:5000/api/vehicle/update/${vehicleId}`, data)
+      .then((res) => {
+        console.log(res);
+        console.log(JSON.stringify(res));
+        alert(res.data.message);
+        if (res.data.message == "Vehicle Detail updated successfully!") {
+          setTimeout(() => {
+            navigate("/vehicledetail");
+            window.location.reload();
+          }, 1500);
+        }
+      })
+      .catch((error) => {
+        alert(error.response.data.error);
+      });
   };
+
+  useEffect(() => {
+    console.log(vehicleId);
+  }, []);
 
   return (
     <div className="newUserc">
-      <h1 className="newUserTitlec">Add Vehicle Details</h1>
-      <form className="newUserFormc">
+      <h1 className="newUserTitlec">Edit Vehicle Details</h1>
+      <form className="newUserFormcccc">
         <div className="newUserItemc">
-          <label> Vehiclenumber</label>
+          <label>vehicle plate number</label>
           <input
             type="text"
             placeholder="AA 0001"
@@ -46,17 +70,17 @@ export default function Addvehicledetail() {
         <div className="newUserItemc">
           <label>Manufacturedyear</label>
           <input
-            type="number"
+            type="text"
             placeholder="2010/2022.."
             onChange={(e) => setmanufacturedyear(e.target.value)}
           />
         </div>
 
         <div className="newUserItemc">
-          <label>Chassisnumber</label>
+          <label>VIN Number</label>
           <input
             type="text"
-            placeholder="SV30-0169266 "
+            placeholder="1hwa31aa5ae006086"
             onChange={(e) => setchassisnumber(e.target.value)}
           />
         </div>
@@ -71,16 +95,7 @@ export default function Addvehicledetail() {
         </div>
 
         <div className="newUserItemc">
-          <label>Customerid</label>
-          <input
-            type="text"
-            placeholder="Rs 60,0000"
-            onChange={(e) => setcustomerid(e.target.value)}
-          />
-        </div>
-
-        <div className="newUserItemc">
-          <button className="newUserButtonc" onClick={postData}>
+          <button className="newUserButtonc" onClick={putData}>
             Create
           </button>
         </div>

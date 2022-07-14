@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./logstyle.css";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [roleKey, setRoleKey] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,15 +19,23 @@ const Login = () => {
 
     console.log(body);
     Axios.post("/user/userlogin", body)
-      .then((response) => {
-        console.log(response);
-        var Data = response.data;
-        alert("You are Successfully Loged");
-        window.localStorage.setItem("userName", Data.user.username);
-        window.localStorage.setItem("userRole", Data.user.role);
-        window.localStorage.setItem("id", Data.user._id);
-        window.localStorage.setItem("token", Data.token);
-        window.location.reload();
+      .then((res) => {
+        console.log(res);
+        var Data = res.data;
+
+        console.log(JSON.stringify(res));
+        alert(res.data.message);
+        if (res.data.message == "Login success!") {
+          window.localStorage.setItem("userName", Data.user.username);
+          window.localStorage.setItem("userRole", Data.user.role);
+          window.localStorage.setItem("id", Data.user._id);
+          window.localStorage.setItem("token", Data.token);
+
+          setTimeout(() => {
+            navigate("/profile");
+            window.location.reload();
+          }, 1500);
+        }
       })
       .catch((error) => {
         alert(error.response.data.error);
@@ -55,7 +65,7 @@ const Login = () => {
             <label> Password</label>
             <input
               value={password}
-              type="text"
+              type="password"
               placeholder="enter your password..."
               onChange={(e) => setPassword(e.target.value)}
             />

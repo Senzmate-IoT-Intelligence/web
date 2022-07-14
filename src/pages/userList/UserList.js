@@ -11,7 +11,7 @@ export default function Employee_List() {
 
   useEffect(() => {
     getdata();
-  });
+  }, []);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -61,7 +61,9 @@ export default function Employee_List() {
             </Link>
 
             <Link to={"/vehicledetail/" + params.row._id}>
-              <button className="userListvehicle">Vehicle Detail</button>
+              <button className="userListvehicle">
+                Vehicle vs Insurance Detail
+              </button>
             </Link>
           </>
         );
@@ -75,6 +77,15 @@ export default function Employee_List() {
         <h1 className="userTitle1"> Custome Details</h1>
         <Link to="/newUser">
           <button className="userAddButton6">Create</button>
+        </Link>
+      </div>
+      <div className="userTitleContainer2">
+        <h1 className="userTitle1"> </h1>
+        <Link to="/addvehicledetail">
+          <button className="userAddButtonvh">Add Vehicle Detail</button>
+        </Link>
+        <Link to="/addinsurancedetail">
+          <button className="userAddButtonin">Add Insurance Detail</button>
         </Link>
       </div>
 

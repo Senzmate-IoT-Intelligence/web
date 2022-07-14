@@ -10,8 +10,10 @@ import { Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "./user.css";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function User() {
+  const navigate = useNavigate();
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [nic, setnic] = useState("");
@@ -24,7 +26,7 @@ export default function User() {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   const putData = () => {
     const data = {
@@ -35,9 +37,21 @@ export default function User() {
       insurancetype: insurancetype,
     };
     console.log(data);
-    Axios.put(`http://localhost:5000/api/customer/update/${userId}`, data).then(
-      (res) => console.log(res)
-    );
+    Axios.put(`http://localhost:5000/api/customer/update/${userId}`, data)
+      .then((res) => {
+        console.log(res);
+        console.log(JSON.stringify(res));
+        alert(res.data.message);
+        if (res.data.message == "Customer updated successfully!") {
+          setTimeout(() => {
+            navigate("/users");
+          }, 1500);
+          //window.location.reload();
+        }
+      })
+      .catch((error) => {
+        alert(error.response.data.error);
+      });
   };
 
   const getData = () => {
@@ -56,7 +70,7 @@ export default function User() {
         <div className="userShowe">
           <div className="userShowTope">
             <img
-              src="https://media.istockphoto.com/photos/young-businessman-with-beard-smiling-towards-camera-picture-id660150716?k=20&m=660150716&s=612x612&w=0&h=8jOsv-5u9yxEBrnSq56B83YLmEv28wZZ6Di7FrBNd1k="
+              src="https://thumbs.dreamstime.com/b/icon-profile-circle-shadow-color-dark-blue-background-color-white-icon-profile-circle-shadow-color-dark-blue-194699287.jpg"
               alt=""
               className="userShowImge"
             />
@@ -109,7 +123,7 @@ export default function User() {
               <div className="userUpdateIteme">
                 <label>Email</label>
                 <input
-                  type="text"
+                  type="email"
                   placeholder="annabeck99@gmail.com"
                   onChange={(e) => setemail(e.target.value)}
                   className="userUpdateInput"
@@ -135,19 +149,25 @@ export default function User() {
               </div>
               <div className="userUpdateIteme">
                 <label>Insurance Type</label>
-                <input
-                  type="text"
-                  placeholder="first/third"
-                  onChange={(e) => setinsurancetype(e.target.value)}
-                  className="userUpdateInput"
-                />
+                <select
+                  className="newUserSelectc"
+                  name="insurancetype"
+                  id="active"
+                  onChange={(e) =>
+                    setinsurancetype(e.target.value) +
+                    console.log(e.target.value)
+                  }
+                >
+                  <option value={"First Party"}>First Party</option>
+                  <option value={"Third Party"}>Third Party</option>
+                </select>
               </div>
             </div>
             <div className="userUpdateRighte">
               <div className="userUpdateUploade">
                 <img
                   className="userUpdateImg"
-                  src="https://media.istockphoto.com/photos/young-businessman-with-beard-smiling-towards-camera-picture-id660150716?k=20&m=660150716&s=612x612&w=0&h=8jOsv-5u9yxEBrnSq56B83YLmEv28wZZ6Di7FrBNd1k="
+                  src="https://thumbs.dreamstime.com/b/icon-profile-circle-shadow-color-dark-blue-background-color-white-icon-profile-circle-shadow-color-dark-blue-194699287.jpg"
                   alt=""
                 />
                 <label htmlFor="file">

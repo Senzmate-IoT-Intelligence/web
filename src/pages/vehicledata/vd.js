@@ -15,22 +15,25 @@ export default function User2() {
   const [vehicle, setvehicle] = useState([]);
   const [insurance, setinsurance] = useState([]);
   const { userId } = useParams();
-  useEffect(() => {
-    getData();
-  });
+
+  // useEffect(() => {
+  //   getData();
+  // });
 
   const getData = () => {
     Axios.get(`http://localhost:5000/api/vehicle/show/${userId}`)
       .then((res) => {
         setvehicle(res.data.response);
+        console.log(res.data.response);
       })
       .catch((err) => console.log(err));
     console.log(vehicle);
   };
 
   useEffect(() => {
+    getData();
     getData2();
-  });
+  }, []);
 
   const getData2 = () => {
     Axios.get(`http://localhost:5000/api/insurancedetail/show/${userId}`)
@@ -44,27 +47,25 @@ export default function User2() {
   return (
     <div className="user">
       <div className="userTitleContainer">
-        <h1 className="userTitle">Vehicle Details-{userId} </h1>
-        <Link to="/addvehicledetail">
-          <button className="userAddButton9">Add Vehicle Detail</button>
+        <h1 className="userTitle">{vehicle.name}</h1>
+        <Link to={"/editvehicledetail/" + vehicle._id}>
+          <button className="userAddButtonv">update Vehicle Detail</button>
         </Link>
-        <Link to="/addinsurancedetail">
-          <button className="userAddButton10">Add Insurance Detail</button>
+        <Link to={"/editinsurance/" + insurance._id}>
+          <button className="userAddButtoni">update Insurance Detail</button>
         </Link>
       </div>
       <div className="userContainer">
         <div className="userShow">
-          <div className="userShowTop">
-            <div className="userShowTopTitle">
-              <span className="userShowUsername">Saman Perera</span>
-              <span className="userShowUserTitlev">Vehicle Info</span>
-            </div>
+          <div className="userShowTopTitle">
+            <span className="userUpdateTitlev">Vehicle Details</span>
           </div>
           <div className="userShowBottom">
-            <span className="userShowTitle">Vehicle Info</span>
+            <span className="userShowTitle">Vehicle Info-{vehicle.name}</span>
+
             <div className="userShowInfo">
               <NumbersRounded className="userShowIcon" />
-              <label> Vehiclenumber</label>
+              <label> vehicle plate number</label>
               <span className="userShowInfoTitle1">
                 {vehicle.vehiclenumber}
               </span>
@@ -78,7 +79,7 @@ export default function User2() {
             </div>
             <div className="userShowInfo">
               <Square className="userShowIcon" />
-              <label>Chassisnumber</label>
+              <label>VIN Number</label>
               <span className="userShowInfoTitle3">
                 {vehicle.chassisnumber}
               </span>
@@ -86,7 +87,7 @@ export default function User2() {
             <div className="userShowInfo">
               <PriceChange className="userShowIcon" />
               <label>Price</label>
-              <span className="userShowInfoTitle4">{vehicle.value}</span>
+              <span className="userShowInfoTitle5">{vehicle.value}</span>
             </div>
           </div>
         </div>
@@ -95,7 +96,9 @@ export default function User2() {
 
           <div className="userUpdateLeft">
             <div className="userShowBottom">
-              <span className="userShowTitle">Insurance Info</span>
+              <span className="userShowTitle">
+                Insurance Info -{vehicle.name}
+              </span>
               <div className="userShowInfoi">
                 <NumbersRounded className="userShowIconi" />
                 <label> Monthlypremium</label>

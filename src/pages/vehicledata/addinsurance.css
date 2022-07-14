@@ -15,12 +15,12 @@
 
 
 
-.newUserFormc {
-    margin-top: 2cm;
-    margin-left: 4cm;
+.newUserFormccc {
+    margin-top: 10px;
+    margin-left: 10cm;
 
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .newUserTitlec {

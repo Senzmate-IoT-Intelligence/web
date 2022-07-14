@@ -1,8 +1,10 @@
 import "./newUser.css";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 export default function NewUser() {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -27,15 +29,25 @@ export default function NewUser() {
       insurancetype: insurancetype,
     };
     console.log(data);
-    Axios.post("http://localhost:5000/api/customer/create", data).then((res) =>
-      console.log(res)
-    );
+    Axios.post("http://localhost:5000/api/customer/create", data)
+      .then((res) => {
+        console.log(JSON.stringify(res));
+        alert(res.data.msg);
+        if (res.data.msg == "Customer Added Successfully") {
+          setTimeout(() => {
+            navigate("/users");
+          }, 1500);
+        }
+      })
+      .catch((error) => {
+        alert(error.response.data.error);
+      });
   };
 
   return (
     <div className="newUserc">
       <h1 className="newUserTitlec">Add New Customer</h1>
-      <form className="newUserFormc">
+      <form className="newUserFormcc">
         <div className="newUserItemc">
           <label> Name</label>
           <input
@@ -73,11 +85,17 @@ export default function NewUser() {
 
         <div className="newUserItemc">
           <label> Insurance Type</label>
-          <input
-            type="text"
-            placeholder="Thirdparty/..."
-            onChange={(e) => setinsurancetype(e.target.value)}
-          />
+          <select
+            className="newUserSelectc"
+            name="insurancetype"
+            id="active"
+            onChange={(e) =>
+              setinsurancetype(e.target.value) + console.log(e.target.value)
+            }
+          >
+            <option value={"First Party"}>First Party</option>
+            <option value={"Third Party"}>Third Party</option>
+          </select>
         </div>
 
         <div className="newUserItemc">

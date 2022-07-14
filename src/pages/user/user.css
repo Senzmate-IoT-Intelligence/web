@@ -16,7 +16,7 @@
 
 .userTitlee {
   color: white;
-  margin-left: 3cm;
+  margin-left: 10PX;
 }
 
 
@@ -167,7 +167,7 @@
 
 
   cursor: pointer;
-  color: aliceblue;
+  color: #00186e;
 
 
 }

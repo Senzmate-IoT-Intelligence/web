@@ -22,7 +22,7 @@ export default function Profile() {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   const postData = () => {
     const data = {
@@ -52,7 +52,7 @@ export default function Profile() {
         <div className="userShow">
           <div className="userShowTop">
             <img
-              src="https://etimg.etb2bimg.com/photo/81507854.cms"
+              src="https://thumbs.dreamstime.com/b/icon-profile-circle-shadow-color-dark-blue-background-color-white-icon-profile-circle-shadow-color-dark-blue-194699287.jpg"
               alt=""
               className="userShowImg"
             />
@@ -119,7 +119,7 @@ export default function Profile() {
               <div className="userUpdateUpload">
                 <img
                   className="userUpdateImg"
-                  src="https://etimg.etb2bimg.com/photo/81507854.cms"
+                  src="https://thumbs.dreamstime.com/b/icon-profile-circle-shadow-color-dark-blue-background-color-white-icon-profile-circle-shadow-color-dark-blue-194699287.jpg"
                   alt=""
                 />
                 <label htmlFor="file">

@@ -4,13 +4,16 @@
   margin-top: 40px;
   margin-bottom: 45px;
 }
+
 .user1 {
   flex: 4;
   padding: 20px;
 }
+
 .userTitle1 {
   margin-left: 10px;
 }
+
 .userTitleContainer1 {
   display: flex;
   align-items: center;
@@ -19,6 +22,17 @@
   background-color: #00186e;
   color: white;
 }
+
+.userTitleContainer2 {
+  display: flex;
+  height: -200px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  background-color: white;
+  color: white;
+}
+
 .userAddButton6 {
   width: 80px;
   border: none;
@@ -28,7 +42,7 @@
   cursor: pointer;
   color: black;
   font-size: 16px;
-  margin-right: 1cm;
+  margin-right: -200px;
 }
 
 .userListUser {
@@ -54,6 +68,7 @@
   margin-right: 10px;
   margin-left: 100px;
 }
+
 .userListvehicle {
   border: none;
   border-radius: 10px;
@@ -74,6 +89,7 @@
   cursor: pointer;
   margin-right: 20px;
 }
+
 .userList {
   border: none;
   border-radius: 10px;
@@ -87,4 +103,41 @@
 .userListDelete {
   color: red;
   cursor: pointer;
+}
+
+.userAddButtonvh {
+  width: 100px;
+  height: 40px;
+  border: none;
+  padding: 5px;
+  background-color: #00186e;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-size: small;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 1000px;
+  text-decoration: solid;
+
+}
+
+.userAddButtonin {
+  background-color: #00186e;
+  width: 100px;
+  height: 40px;
+  border: none;
+  padding: 5px;
+
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-size: small;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  text-decoration: solid;
+
 }

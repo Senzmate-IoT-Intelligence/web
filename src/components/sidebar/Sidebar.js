@@ -50,51 +50,49 @@ export default function Sidebar() {
               </li>
             </ul>
           </div>
-          {userRole == "monitoring officer" ||
-            ("admin" && (
-              <div className="sidebarMenu">
-                <h3 className="sidebarTitle">Monitoring Dash Board</h3>
-                <ul className="sidebarList">
-                  <Link to="/users" className="link">
-                    <li className="sidebarListItem">
-                      <PermIdentity className="sidebarIcon" />
-                      Customer Monitoring
-                    </li>
-                  </Link>
-                  <Link to="/employee" className="link">
-                    <li className="sidebarListItem">
-                      <Storefront className="sidebarIcon" />
-                      Employee Monitoring
-                    </li>
-                  </Link>
+          {(userRole == "Monitoring Officer" || userRole == "Admin") && (
+            <div className="sidebarMenu">
+              <h3 className="sidebarTitle">Monitoring Dash Board</h3>
+              <ul className="sidebarList">
+                <Link to="/users" className="link">
                   <li className="sidebarListItem">
-                    <AttachMoney className="sidebarIcon" />
-                    Payments Monitoring
+                    <PermIdentity className="sidebarIcon" />
+                    Customer Monitoring
                   </li>
+                </Link>
+                <Link to="/employee" className="link">
+                  <li className="sidebarListItem">
+                    <Storefront className="sidebarIcon" />
+                    Employee Monitoring
+                  </li>
+                </Link>
+                <li className="sidebarListItem">
+                  <AttachMoney className="sidebarIcon" />
+                  Payments Monitoring
+                </li>
 
-                  <li className="sidebarListItem">
-                    <Commute className="sidebarIcon" />
-                    Trips Monitoring
-                  </li>
-                </ul>
-              </div>
-            ))}
-          {userRole == "custom officer" ||
-            ("admin" && (
-              <div className="sidebarMenu">
-                <h3 className="sidebarTitle">Customer Care Dash Board</h3>
-                <ul className="sidebarList">
-                  <li className="sidebarListItem">
-                    <MailOutline className="sidebarIcon" />
-                    Send Notifications
-                  </li>
-                  <li className="sidebarListItem">
-                    <DynamicFeed className="sidebarIcon" />
-                    customer service
-                  </li>
-                </ul>
-              </div>
-            ))}
+                <li className="sidebarListItem">
+                  <Commute className="sidebarIcon" />
+                  Trips Monitoring
+                </li>
+              </ul>
+            </div>
+          )}
+          {(userRole == "Custom Officer" || userRole == "Admin") && (
+            <div className="sidebarMenu">
+              <h3 className="sidebarTitle">Customer Care Dash Board</h3>
+              <ul className="sidebarList">
+                <li className="sidebarListItem">
+                  <MailOutline className="sidebarIcon" />
+                  Send Notifications
+                </li>
+                <li className="sidebarListItem">
+                  <DynamicFeed className="sidebarIcon" />
+                  customer service
+                </li>
+              </ul>
+            </div>
+          )}
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Customizable Options</h3>
             <ul className="sidebarList">

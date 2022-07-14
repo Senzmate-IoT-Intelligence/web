@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./regstyle.css";
 import Axios from "axios";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Register = (props) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [roleKey, setRoleKey] = useState("");
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
@@ -21,23 +26,41 @@ const Register = () => {
 
     console.log(body);
     Axios.post("user/userregister", body)
-      .then((response) => {
-        var Data = response.data;
-        alert("You are Successfully Registerd");
-        window.localStorage.setItem("userRole", Data.newUser.role);
-        window.localStorage.setItem("userName", Data.newUser.username);
-        window.localStorage.setItem("Email", Data.newUser.email);
-        window.localStorage.setItem("Password", Data.newUser.password);
-        window.localStorage.setItem(
-          "ComfirmPassword",
-          Data.newUser.confirmpassword
-        );
-        window.location.reload();
+      .then((res) => {
+        console.log(res);
+        var Data = res.data;
+
+        console.log(JSON.stringify(res));
+        alert(res.data.message);
+        if (res.data.message == "Register successfully!") {
+          setTimeout(() => {
+            navigate("/");
+            window.location.reload();
+          }, 1500);
+
+          alert("You are Successfully Registerd");
+          window.localStorage.setItem("userRole", Data.newUser.role);
+          window.localStorage.setItem("userName", Data.newUser.username);
+          window.localStorage.setItem("Email", Data.newUser.email);
+          window.localStorage.setItem("Password", Data.newUser.password);
+          window.localStorage.setItem(
+            "ComfirmPassword",
+            Data.newUser.confirmpassword
+          );
+          //window.location.reload();
+        }
       })
       .catch((error) => {
         alert(error.response.data.error);
       });
   };
+
+  useEffect(() => {
+    console.log("Signup loaded!");
+    console.log(location);
+    setRoleKey(location.state.role);
+    setemail(location.state.email);
+  }, []);
 
   return (
     <div className="formr">
@@ -60,12 +83,20 @@ const Register = () => {
         <form className="newUserFormr">
           <div className="newUserItemr">
             <label>User Role </label>
-            <input
-              value={roleKey}
-              type="text"
-              placeholder="admin/monitoring officer/custom officer"
-              onChange={(e) => setRoleKey(e.target.value)}
-            />
+            <select
+              className="newUserSelectc"
+              name="role"
+              id="active"
+              disabled
+              // onChange={(e) =>
+              //   setRoleKey(e.target.value) + console.log(e.target.value)
+              // }
+            >
+              <option value={roleKey}>{roleKey}</option>
+              {/* <option value={"Admin"}>Admin</option>
+              <option value={"Monitoring officer"}>Monitoring officer</option>
+              <option value={"Custom officer"}>Custom officer</option> */}
+            </select>
           </div>
           <div className="newUserItemr">
             <label>User Name</label>
@@ -79,6 +110,7 @@ const Register = () => {
           <div className="newUserItemr">
             <label>Email</label>
             <input
+              readOnly
               type="email"
               value={email}
               placeholder="john@gmail.com"
@@ -89,7 +121,7 @@ const Register = () => {
           <div className="newUserItemr">
             <label> Password</label>
             <input
-              type="text"
+              type="password"
               value={password}
               placeholder="enter your password..."
               onChange={(e) => setPassword(e.target.value)}
@@ -99,7 +131,7 @@ const Register = () => {
           <div className="newUserItemr">
             <label> confirmpassword</label>
             <input
-              type="text"
+              type="password"
               value={confirmpassword}
               placeholder="re enter here..."
               onChange={(e) => setconfirmpassword(e.target.value)}
